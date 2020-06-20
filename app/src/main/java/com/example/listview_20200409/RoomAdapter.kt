@@ -21,6 +21,8 @@ class RoomAdapter(context : Context, resId : Int, list :ArrayList<Room>) : Array
 
         val row=tempRow!!
 
+        //row변수를 활용해서 각줄에 맞는 데아터 가공.
+
         return row
     }
 
