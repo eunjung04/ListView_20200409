@@ -2,9 +2,11 @@ package com.example.listview_20200409
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    var mRoomAdapter:RoomAdapter?=null
     val roomList=ArrayList<Room>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,5 +20,9 @@ class MainActivity : AppCompatActivity() {
         roomList.add(Room(4000, "서울시 성북구", 8, "단독주택입니다."))
         roomList.add(Room(9000, "경기도 남양주시", 12, "아파트입니다."))
         roomList.add(Room(11000, "서울시 광진구", -1, "연립주택입니다."))
+
+        mRoomAdapter=RoomAdapter(this,R.layout.room_list_item, roomList)
+        roomListView.adapter=mRoomAdapter
+
     }
 }
