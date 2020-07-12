@@ -2,6 +2,7 @@ package com.example.listview_20200409
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,13 @@ class MainActivity : AppCompatActivity() {
 
         mRoomAdapter=RoomAdapter(this,R.layout.room_list_item, roomList)
         roomListView.adapter=mRoomAdapter
+
+        roomListView.setOnItemLongClickListener { parent, view, position, id ->
+            Toast.makeText(this,"${position}번 줄 오래 클릭", Toast.LENGTH_SHORT).show()
+
+            return@setOnItemLongClickListener true
+
+        }
 
     }
 }
